@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[600, 400]"/>
+    </Property>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[600, 400]"/>
+    </Property>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="533" max="32767" attributes="0"/>
+              <Component id="timeDisplay" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="timeDisplay" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="369" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JTextField" name="timeDisplay">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="Thread clock = new Thread(){&#xa;    public void run(){&#xa;        try{&#xa;            while(true){&#xa;                Calendar calendar = new GregorianCalendar();&#xa;                String hourZ = &quot;&quot;, minZ = &quot;&quot;, secZ = &quot;&quot;;&#xa;&#xa;                int day = calendar.get(Calendar.DAY_OF_MONTH);&#xa;&#xa;                int month = calendar.get(Calendar.MONTH);&#xa;                ++month;&#xa;&#xa;                int year = calendar.get(Calendar.YEAR);&#xa;&#xa;                int hour = calendar.get(Calendar.HOUR);&#xa;                if(hour == 0)&#xa;                    hour = 12;&#xa;&#xa;                if(hour &lt; 10)&#xa;                    hourZ = &quot;0&quot;;&#xa;&#xa;                int minute = calendar.get(Calendar.MINUTE);&#xa;                if(minute &lt; 10)&#xa;                    minZ = &quot;0&quot;;&#xa;&#xa;                int second = calendar.get(Calendar.SECOND);&#xa;                if(second &lt; 10)&#xa;                    secZ = &quot;0&quot;;&#xa;&#xa;                timeDisplay.setText((month) + &quot;/&quot; + day + &quot;/&quot; + year + &quot;  &quot; + hourZ + hour + &quot;:&quot; + minZ + minute + &quot;:&quot; + secZ + second);&#xa;                sleep(1000);&#xa;            }&#xa;        }catch(InterruptedException e){&#xa;            e.printStackTrace();&#xa;        }&#xa;    }&#xa;};&#xa;&#xa;clock.start();"/>
+      </AuxValues>
+    </Component>
+  </SubComponents>
+</Form>
